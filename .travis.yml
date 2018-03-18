@@ -22,4 +22,4 @@ install:
 
 after_success:
   - ./gradlew jacocoTestReport coveralls
-  - firebase deploy -token $FIREBASE_TOKEN
+  - firebase deploy --token $FIREBASE_TOKEN
