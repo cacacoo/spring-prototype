@@ -6,14 +6,20 @@ branches:
   only:
   - master
 
-# Travis CI 서버의 Cache 활성화
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
 # clean 후 Build (Build 시 자동으로 test 수행)
-script: "./gradlew clean build"
+script:
+  - "./gradlew clean build"
+
+install:
+  - nvm install v6.11.2
+  - npm install -g firebase-tools
+
 
 after_success:
   - ./gradlew jacocoTestReport coveralls
+  - firebase deploy -token $FIREBASE_TOKEN
