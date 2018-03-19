@@ -16,7 +16,7 @@ script:
   - "./gradlew clean build"
 
 install:
-  - nvm install v6.11.2
+  - nvm install v8.10.0
   - npm install -g firebase-tools
 
 
